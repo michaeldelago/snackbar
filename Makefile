@@ -1,7 +1,14 @@
 swayconfigdir := $(HOME)/.config/sway/statusbar
 
+clean:
+	rm -rf build/*
 
-build:
+run:
+	sbcl --load statusbar.asd \
+			 --eval '(ql:quickload :statusbar)' \
+			 --eval '(statusbar:print-status)'
+
+build: clean
 	mkdir -pv build
 	sbcl --load statusbar.asd \
 	     --eval '(ql:quickload :statusbar)' \

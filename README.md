@@ -40,7 +40,9 @@
 
 ### Why write your own bar when there's so many available?
 
-It felt like it'd be fun to do, and I wanted a practical project for common lisp.
+It felt like it'd be fun to do, and I wanted a somewhat practical project for common lisp.
+
+There's a previous iteration of this project, written in python
 
 ### Do you accept contributions to this project?
 
