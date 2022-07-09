@@ -34,6 +34,10 @@
 
 ## Questions
 
+### What does it look like
+
+/: 4% | 🔈 35% | bat0 78% 🔋⚡ | bat1 63% 🔌 | Sat, Jul 09 2022 12:14 am 
+
 ### Why write your own bar when there's so many available?
 
 It felt like it'd be fun to do, and I wanted a practical project for common lisp.
