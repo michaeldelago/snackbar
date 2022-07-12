@@ -37,7 +37,7 @@
 ### What does it look like
 
 ```
-/: 4% | 🔈 35% | bat0 78% 🔋⚡ | bat1 63% 🔌 | Sat, Jul 09 2022 12:14 am
+avail: 26.9G used: 10.9% | /: 4% | 🔈 85% | bat0 77.4% 🔋⚡ | bat1 16.5% 🔋⬇️ | Tue, Jul 12 2022 4:40 pm 
 ```
 
 For context, I'm using a thinkpad t480 with 2 batteries.
