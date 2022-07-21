@@ -10,5 +10,8 @@
 (defun format-disks (disks)
   (let* ((out ()) (disks
                    (dolist (disk disks out)
-                     (push (format nil "~d: ~d%" (getf disk :DISK) (getf disk :use-percent)) out))))
-    (format nil "~{~A~^ ~}" disks)))
+                     (push (format nil "~d: ~d% avail: ~,1FG" (getf disk :DISK) (getf disk :use-percent) (byte-to-gb (getf disk :available)))  out))))
+    (format nil "~{~A~^ |~}" disks)))
+
+(defun byte-to-gb (val)
+ (float (/ (/ (/ val 1024) 1024) 1024)))
