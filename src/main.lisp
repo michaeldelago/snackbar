@@ -10,7 +10,8 @@
          (audio   (format-audio (get-audio)))
          (battery (format-battery (mapcar #'get-battery-stats (get-battery))))
          (clock   (get-time)))
-     (princ
-       (format nil "~d | ~d | ~d | ~d | ~d ~%"
-         memory disks audio battery clock)))
+     (princ 
+       (format nil "~{~A ~^| ~}" 
+         (remove-if (lambda (stat) (equal stat "")) 
+             (list memory disks audio battery clock)))))
    t))
