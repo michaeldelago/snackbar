@@ -13,5 +13,5 @@
                (:file "helpers"))
   :description "basic statusbar for sway"
   :build-operation "program-op"
-  :build-pathname "statusbar"
+  :build-pathname "../statusbar"
   :entry-point "statusbar:print-status")

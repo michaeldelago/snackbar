@@ -4,7 +4,9 @@ clean:
 	rm -rf build/*
 
 run:
-	sbcl --load statusbar.asd \
+	sbcl --non-interactive \
+			 --eval "(ql:quickload 'asdf)" \
+			 --eval '(asdf:load-asd	"$(PWD)/statusbar.asd")' \
 			 --eval '(ql:quickload :statusbar)' \
 			 --eval '(statusbar:print-status)'
 
@@ -23,3 +25,9 @@ test:
 
 install: test build
 	cp ./build/statusbar $(swayconfigdir)
+
+asdf:
+	sbcl --non-interactive \
+	  	 --eval "(ql:quickload 'asdf)" \
+			 --eval '(asdf:load-asd "$(PWD)/statusbar.asd")' \
+			 --eval '(asdf:make :statusbar)'
