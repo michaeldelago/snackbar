@@ -23,5 +23,3 @@
 
 (defun kb-to-gb (val)
  (float (/ (/ val 1024) 1024)))
-
-; (format-memory (get-memory-info))

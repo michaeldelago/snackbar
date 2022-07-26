@@ -11,7 +11,10 @@
                (:file "memory")
                (:file "time")
                (:file "helpers"))
-  :description "basic statusbar for sway"
-  :build-operation "program-op"
-  :build-pathname "../statusbar"
+  :description "basic statusbar for sway")
+
+(defsystem "statusbar/build"
+  :depends-on ("statusbar")
+  :build-operation program-op
+  :build-pathname "statusbar"
   :entry-point "statusbar:print-status")
