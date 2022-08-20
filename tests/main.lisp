@@ -1,11 +1,11 @@
-(defpackage statusbar/tests/main
+(defpackage snackbar/tests/main
   (:use :cl
-        :statusbar
+        :snackbar
         :rove))
-(in-package :statusbar/tests/main)
+(in-package :snackbar/tests/main)
 
-;; NOTE: To run this test file, execute `(asdf:test-system :statusbar)' in your Lisp.
+;; NOTE: To run this test file, execute `(asdf:test-system :snackbar)' in your Lisp.
 
 (deftest show-status
   (testing "doesn't error out"
-    (ok (statusbar:print-status))))
+    (ok (snackbar:print-status))))

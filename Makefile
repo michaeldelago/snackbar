@@ -1,27 +1,27 @@
 clean:
-	rm -rf ./statusbar
+	rm -rf ./snackbar
 
 run:
 	sbcl --non-interactive \
 			 --eval "(ql:quickload 'asdf)" \
-			 --eval '(asdf:load-asd	"$(PWD)/statusbar.asd")' \
-			 --eval '(ql:quickload :statusbar)' \
-			 --eval '(statusbar:print-status)'
+			 --eval '(asdf:load-asd	"$(PWD)/snackbar.asd")' \
+			 --eval '(ql:quickload :snackbar)' \
+			 --eval '(snackbar:print-status)'
 
 test:
 	sbcl --non-interactive \
-			 --load statusbar.asd \
-	     --eval '(ql:quickload :statusbar/tests)' \
-			 --eval '(asdf:test-system :statusbar)' \
+			 --load snackbar.asd \
+	     --eval '(ql:quickload :snackbar/tests)' \
+			 --eval '(asdf:test-system :snackbar)' \
 
 build: clean
 	sbcl --non-interactive \
 	  	 --eval "(ql:quickload 'asdf)" \
-			 --eval '(asdf:load-asd "$(PWD)/statusbar.asd")' \
-			 --eval '(ql:quickload :statusbar)' \
-			 --eval '(asdf:make :statusbar)'
+			 --eval '(asdf:load-asd "$(PWD)/snackbar.asd")' \
+			 --eval '(ql:quickload :snackbar/build)' \
+			 --eval '(asdf:make :snackbar/build)'
 
 shell:
 	rlwrap sbcl --eval "(ql:quickload 'asdf)" \
-				      --eval '(asdf:load-asd "$(PWD)/statusbar.asd")' \
-              --eval '(ql:quickload :statusbar)'
+				      --eval '(asdf:load-asd "$(PWD)/snackbar.asd")' \
+              --eval '(ql:quickload :snackbar)'

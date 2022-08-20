@@ -1,4 +1,4 @@
-(defpackage :statusbar
+(defpackage :snackbar
   (:use #:cl
         #:cffi)
   (:export #:print-status))

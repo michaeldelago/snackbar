@@ -1,4 +1,4 @@
-# Statusbar
+# snackbar
 
 ## Usage
 
@@ -9,9 +9,9 @@
 
 ## Installation
 
-1. Move executable from `build/statusbar` to `~/.config/sway/statusbar`
+1. Move executable from `build/snackbar` to `~/.config/sway/snackbar`
 
-    `$ mv ./build/statusbar ~/.config/sway/statusbar`
+    `$ mv ./build/snackbar ~/.config/sway/snackbar`
 
 2. Configure sway
 
@@ -20,7 +20,7 @@
     ```
     bar {
         position top
-        status_command while ~/.config/sway/statusbar; do sleep 1; done
+        status_command while ~/.config/sway/snackbar; do sleep 1; done
 
         colors {
             statusline #ffffff

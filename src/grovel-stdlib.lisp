@@ -1,4 +1,4 @@
-(in-package #:statusbar)
+(in-package #:snackbar)
 
 (cc-flags "-I/usr/include")
 

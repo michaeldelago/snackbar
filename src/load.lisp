@@ -1,4 +1,4 @@
-(in-package :statusbar)
+(in-package :snackbar)
 
 ;; int getloadavg(double loadavg[], int nelem);
 (defcfun ("getloadavg" %getloadavg) :int

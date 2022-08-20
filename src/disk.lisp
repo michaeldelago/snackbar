@@ -1,4 +1,4 @@
-(in-package :statusbar)
+(in-package :snackbar)
 
 (defparameter *blocked-disks* (list "/boot" "/boot/efi"))
 

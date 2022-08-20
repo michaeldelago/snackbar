@@ -1,4 +1,4 @@
-(in-package :statusbar)
+(in-package :snackbar)
 
 (defvar *meminfo* #P"/proc/meminfo")
 

@@ -1,4 +1,4 @@
-(in-package :statusbar)
+(in-package :snackbar)
 
 (progn
  (local-time:reread-timezone-repository)

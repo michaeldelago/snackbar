@@ -1,5 +1,5 @@
-(defsystem "statusbar"
-  :version "0.1.0"
+(defsystem "snackbar"
+  :version "0.2"
   :author "michaeldelago"
   :license "MIT"
   :defsystem-depends-on ("cffi-grovel")
@@ -15,10 +15,10 @@
                (:file "time")
                (:cffi-grovel-file "grovel-stdlib")
                (:file "load"))
-  :description "basic statusbar for sway")
+  :description "basic snackbar for sway")
 
-(defsystem "statusbar/build"
-  :depends-on ("statusbar")
+(defsystem "snackbar/build"
+  :depends-on ("snackbar")
   :build-operation program-op
-  :build-pathname "statusbar"
-  :entry-point "statusbar:print-status")
+  :build-pathname "snackbar"
+  :entry-point "snackbar:print-status")

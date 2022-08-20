@@ -1,4 +1,4 @@
-(in-package :statusbar)
+(in-package :snackbar)
 (defparameter *power-supply-path* (pathname "/sys/class/power_supply/"))
 
 (defun get-battery ()

@@ -1,4 +1,4 @@
-(in-package :statusbar)
+(in-package :snackbar)
 
 (defun get-audio ()
   (let* ((vol-ptrn "\\[([0-9]{1,3})%\\]")
