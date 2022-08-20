@@ -25,3 +25,9 @@
                        (t ""))))
             (format nil "~d ~,1F% ~d" (getf batt :NAME) (getf batt :PERCENT) icon)))
         batteries)))
+
+(defun read-file-int (file path)
+  (parse-integer 
+    (first 
+    (uiop:read-file-lines 
+      (merge-pathnames file path)))))

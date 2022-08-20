@@ -2,15 +2,19 @@
   :version "0.1.0"
   :author "michaeldelago"
   :license "MIT"
-  :depends-on ("alexandria" "cl-ppcre" "local-time" "cl-diskspace" "split-sequence")
+  :defsystem-depends-on ("cffi-grovel")
+  :depends-on ("alexandria" "cl-ppcre" "local-time" "cl-diskspace" "split-sequence" "cffi")
   :pathname "src/"
-  :components ((:file "main")
+  :serial t
+  :components ((:file "package")
+               (:file "main")
                (:file "audio")
                (:file "battery")
                (:file "disk")
                (:file "memory")
                (:file "time")
-               (:file "helpers"))
+               (:cffi-grovel-file "grovel-stdlib")
+               (:file "load"))
   :description "basic statusbar for sway")
 
 (defsystem "statusbar/build"

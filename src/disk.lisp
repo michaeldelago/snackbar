@@ -15,7 +15,7 @@
                                                      (getf disk :use-percent) 
                                                      (byte-to-gb (getf disk :available))) 
                   out))))
-    (format nil "~{~A~^ |~}" disks)))
+    (format nil "~{~A~^ | ~}" disks)))
 
 ;; val * (1 / 1024)^3
 (defun byte-to-gb (val)
