@@ -1,5 +1,4 @@
-(import :asdf)
-(asdf:defsystem "statusbar"
+(defsystem "statusbar"
   :version "0.1.0"
   :author "michaeldelago"
   :license "MIT"
@@ -12,17 +11,10 @@
                (:file "memory")
                (:file "time")
                (:file "helpers"))
-  :description "basic statusbar for sway"
-  :in-order-to ((test-op (test-op "statusbar/tests")))
-  :build-operation "program-op"
-  :build-pathname "statusbar"
-  :entry-point "main:print-status")
+  :description "basic statusbar for sway")
 
-(asdf:defsystem "statusbar/tests"
-  :depends-on ("statusbar"
-               "rove")
-  :components ((:module "tests"
-                :components
-                ((:file "main"))))
-  :description "Test system for statusbar"
-  :perform (asdf:test-op (op c) (uiop/package:symbol-call :rove '#:run c)))
+(defsystem "statusbar/build"
+  :depends-on ("statusbar")
+  :build-operation program-op
+  :build-pathname "statusbar"
+  :entry-point "statusbar:print-status")
