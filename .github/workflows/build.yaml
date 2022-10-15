@@ -38,7 +38,7 @@ jobs:
       - name: Pack binary
         run: guix pack --relocatable --save-provenance --root=snackbar.tar.bz2 --compression=bzip2 snackbar
       - name: Create a NAR archive
-        rune: guix archive --export snackbar > snackbar.nar
+        run: guix archive --export snackbar > snackbar.nar
       - name: Upload binary
         uses: actions/upload-artifact@v2
         with:
