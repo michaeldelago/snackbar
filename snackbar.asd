@@ -32,5 +32,5 @@
 (defsystem "snackbar/build"
   :depends-on ("snackbar")
   :build-operation program-op
-  :build-pathname "snackbar"
+  :build-pathname "_build/snackbar"
   :entry-point "snackbar.cli:main")

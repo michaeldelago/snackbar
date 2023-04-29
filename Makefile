@@ -1,4 +1,4 @@
-NAME:=snackbar
+NAME:=_build/snackbar
 LISP:=qlot exec ros run
 PREFIX:=$(HOME)/bin
 
