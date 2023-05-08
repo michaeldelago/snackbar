@@ -1,5 +1,5 @@
 (defsystem "snackbar"
-  :version "0.2.1"
+  :version "0.3.1"
   :author "michaeldelago"
   :license "MIT"
   :depends-on ("alexandria" 
@@ -27,7 +27,7 @@
                (:module #:spec
                 :pathname "spec"
                 :components ()))
-  :description "basic snackbar for sway")
+  :description "basic statusbar for i3/sway")
 
 (defsystem "snackbar/build"
   :depends-on ("snackbar")
