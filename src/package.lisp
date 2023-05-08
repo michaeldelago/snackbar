@@ -1,4 +1,5 @@
 (defpackage :snackbar
   (:use #:cl
-        #:cffi)
+        #:cffi
+        #:snackbar.config)
   (:export #:print-status))

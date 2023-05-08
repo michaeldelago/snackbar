@@ -1,6 +1,7 @@
 (in-package :snackbar)
 
-(defparameter *blocked-disks* (list "/boot" "/boot/efi"))
+(defparameter *blocked-disks*
+  (disk-blocked-disks (configuration-disk *config*)))
 
 (defun get-disks ()
   (remove-if (lambda (disk)
@@ -19,4 +20,7 @@
 
 ;; val * (1 / 1024)^3
 (defun byte-to-gb (val)
-  (float (/ (/ (/ val 1024) 1024) 1024)))
+  (* val
+     (eval-when 
+         (:compile-toplevel :load-toplevel :execute)
+       (/ 1 (expt 1024 3)))))
