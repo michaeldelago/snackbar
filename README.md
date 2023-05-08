@@ -6,17 +6,11 @@
 
 - `earthly +build`
 - `make build`
-
-- building with `guix` requires either [my guix channel](https://github.com/michaeldelago/delaguix) or [the package manifest](https://github.com/michaeldelago/delaguix/blob/main/delaguix/packages/snackbar.scm) and some basic modifications
-  - install from channel:
-    - `guix build snackbar`
-  - install from manifest
-    - `git clone https://github.com/michaeldelago/delaguix`
-    - `guix build --load-path="$(pwd)/delaguix" snackbar`
+- `guix package -f guix.scm`
 
 ## Installation
 
-If using `guix` and either using my channel or building locally:
+If using `guix`:
 
 1. Install package
 
@@ -38,13 +32,9 @@ If using `guix` and artifacts from most recent CI run:
     $ guix archive --import < home/runner/work/snackbar/snackbar/snackbar.nar
     ```
 
-
-
 Else:
 
-1. Move executable from `build/snackbar` to `~/bin/snackbar`
-
-    `$ mv ./build/snackbar ~/bin/snackbar`
+1. Move executable from `_build/snackbar` to `~/bin/snackbar` with `make install`
 
 2. Configure sway
 
@@ -64,6 +54,19 @@ Else:
     ```
 
 3. Reload sway (default $mod+shift+c)
+
+
+## Configuration
+
+Configuration is pretty basic; I add features as they become useful to me. 
+
+You can put a config file in these locations:
+
+1. A location specified by the env variable $SNACKBAR_CONFIG
+2. $XDG_CONFIG_HOME/snackbar/config (defaults to ~/.config/snackbar/config)
+3. $XDG_CONFIG_HOME/sway/snackbar (defaults to ~/.config/sway/snackbar)
+4. $XDG_CONFIG_HOME/i3/snackbar (defaults to ~/.config/i3/snackbar)
+5. /etc/snackbar/config
 
 ## Questions
 
