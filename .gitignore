@@ -7,5 +7,6 @@
 *.x86f
 *~
 .#*
-build/
+_build/
 .vscode
+.qlot
