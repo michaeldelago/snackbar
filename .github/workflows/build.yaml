@@ -10,44 +10,44 @@ on:
       - 'snackbar.asd'
 
 jobs:
-  build:
+  build-guix:
     name: Build Snackbar
     runs-on: ubuntu-latest
     steps:
-      - name: Guix Cache
+      - name: Setup guix Cache
         uses: actions/cache@v2
         with:
           path: ~/.cache/guix
           key: guix-cache-${{ github.sha }}
           restore-keys: |
             guix-cache-
+
       - name: Install Guix
         uses: PromyLOPh/guix-install-action@v1
-        with:
-          channels: |
-            (cons* (channel
-                     (name (quote delaguix))
-                     (url "https://github.com/michaeldelago/delaguix")
-                     (branch "main")
-                     (introduction
-                       (make-channel-introduction
-                         "5588f4bff8a6ec05aa850954c8ca3e9ad8eaacdc"
-                         (openpgp-fingerprint
-                           "A933 28AB EBC8 9D2A 5EF3  DCD3 029E 6E6C 82FC 4503"))))
-                  %default-channels)
+
+      - uses: actions/checkout@v3
+
+      - name: Build package
+        run: guix package -f guix.scm
+
       - name: Ensure no locale warning
         run: test -z "$(guix --version 2>&1 > /dev/null)"
+
       - name: Build Snackbar
         run: guix build snackbar
+
       - name: Pack binary
         run: guix pack --relocatable --save-provenance --root=snackbar.tar.bz2 --compression=bzip2 snackbar
+
       - name: Create a NAR archive
         run: guix archive --export snackbar > snackbar.nar
+
       - name: Upload binary
         uses: actions/upload-artifact@v2
         with:
           name: snackbar Relocatable Binary
           path: snackbar.tar.bz2
+
       - name: Upload NAR
         uses: actions/upload-artifact@v2
         with: 
@@ -56,5 +56,13 @@ jobs:
             snackbar.nar
             /etc/guix/signing-key.pub
 
+  build-earthly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: earthly/actions-setup@v1
+        with:
+          version: "latest" # or pin to an specific version, e.g. "v0.6.10"
 
-
+      - name: Earthly Build and Push
+        run: earthly --ci +build
