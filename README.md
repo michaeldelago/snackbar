@@ -43,7 +43,7 @@ Else:
     ```
     bar {
         position top
-        status_command while ~/bin/snackbar; do sleep 1; done
+        status_command ~/bin/snackbar --loop
 
         colors {
             statusline #ffffff
