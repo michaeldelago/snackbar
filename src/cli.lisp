@@ -14,7 +14,11 @@
    :description "show configuration"
    :short #\s
    :long "show-config")
-   (:name :tz
+  (:name :loop
+   :description "loop and print on a single line"
+   :short #\l
+   :long "loop")
+  (:name :tz
    :description "your timezone, if your machine doesn't use the local timezone. example `--tz -5` for US/Eastern"
    :arg-parser (lambda (zone) (- (parse-integer zone)))
    :long "tz"))
@@ -47,11 +51,15 @@
                   (opts:option condition))
           (opts:exit 1)))
     (when-option (options :help)
-                 (opts:describe
-                   :usage-of "snackbar")
-                 (opts:exit 0))
+      (opts:describe :usage-of "snackbar")
+      (opts:exit 0))
     (when-option (options :show-config)
-                 (snackbar.config:save-default-config t)
-                 (opts:exit 0))
+      (snackbar.config:save-default-config t)
+      (opts:exit 0))
+    (when-option (options :loop)
+      (loop (snackbar:print-status)
+            (format t "~C" #\return)
+            (finish-output)
+            (sleep 1)))
     (snackbar:print-status)
     (opts:exit 0)))
